@@ -2,8 +2,8 @@ import random
 import networkx as nx
 import matplotlib.pyplot as plt
 
-def generate_graph(num_nodes):
-    G= nx.complete_graph(num_nodes)
+def generate_graph(num_nodes):   #Generate a graph
+    G= nx.complete_graph(num_nodes)   
     n=num_nodes
     for u,v in G.edges():
         print(u,"and",v)
@@ -24,10 +24,10 @@ def plot_graph_step(G,delivery,curr_node,pos):
 
     plt.pause(5)
 
-def calculate_delivery_cost(G,delivery):
+def calculate_delivery_cost(G,delivery): #calculate total cost of the route
     return sum(G[delivery[i]][delivery[i+1]]['weight'] for i in range(len(delivery)-1))
 
-def nearest_neighbor_tsp(G,start_node):
+def nearest_neighbor_tsp(G,start_node): #Find and operate on the nearest neighbour
     pos=nx.spring_layout(G)
     plt.ion()
     plt.show()
